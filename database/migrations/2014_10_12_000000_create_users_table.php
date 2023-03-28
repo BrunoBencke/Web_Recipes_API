@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -20,6 +21,16 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        try{
+            $user = new User();
+            $user->name = 'Admin';
+            $user->password = Hash::make('ReceitasWeb*.');
+            $user->email = 'admin@admin.com';
+            $user->save();
+        } catch(\Exception $erro){
+            throw new Exception("Error inserting default user.");
+        }
     }
 
     /**
