@@ -3,7 +3,7 @@
 <h1> Web Recipes API </h1>
 
 # 🛠️ Modelo Entidade Relacionamento
-![Web Recipes](https://github.com/BrunoBencke/Web_Recipes_Site/blob/main/diagrama_er.jpeg?raw=true)
+![DiagramaERReceitasWeb](https://user-images.githubusercontent.com/41764882/229311979-99cd28c9-e8ce-4ed9-b821-7e8b8e9647cf.png)
 
 # :hammer: Funcionalidades do projeto
 
