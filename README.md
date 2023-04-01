@@ -1,4 +1,5 @@
-![logo](https://user-images.githubusercontent.com/41764882/228562002-29d5c16b-0a38-42d6-a953-8d85ad72a8ae.png)
+![marca](https://user-images.githubusercontent.com/41764882/229312173-a887326f-9ac8-4534-b65b-6f592143278e.png)
+
 
 <h1> Web Recipes API </h1>
 
