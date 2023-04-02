@@ -23,15 +23,28 @@ class RecipeIngredientController extends Controller
         }
     }
 
-    public function store(Request $request, string $id)
+    public function store(Request $request, int $id)
     {
         try{
             $bodyContent[] = $request->all();
-            $recipe = Recipe::FindOrfail($id);
-            $version = $recipe->version + 1;
+            $recipeBody = $bodyContent[0];
+
+            if($id == 0){
+                $newRecipe = new Recipe();
+                $newRecipe->description = $recipeBody->description;
+                $newRecipe->version = 1;
+                $newRecipe->save();
+                $id = $newRecipe->id;
+            }else{
+                $recipe = Recipe::FindOrfail($id);
+                //atualizar descrição
+                $version = $recipe->version + 1;
+                DB::table('recipes')->where('id', $id)->update(['version' => $version]);
+            }
+
             $j = 1;
 
-            foreach ($bodyContent[0] as $ingredient) {
+            foreach ($bodyContent[1] as $ingredient) {
                 $recipeIngredient = new RecipeIngredient();
                 $recipeIngredient->recipe_id = $id;
                 $recipeIngredient->ingredient_id = $ingredient['id'];
@@ -40,7 +53,7 @@ class RecipeIngredientController extends Controller
                 $recipeIngredient->save();
                 $j++;
             }
-            DB::table('recipes')->where('id', $id)->update(['version' => $version]);
+
             return ['response' => 'sucess'];
         } catch(\Exception $error){
             return ['response'=>'error', 'details'=>$error];
