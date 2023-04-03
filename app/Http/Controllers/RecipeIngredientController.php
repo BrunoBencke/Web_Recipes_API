@@ -26,25 +26,27 @@ class RecipeIngredientController extends Controller
     public function store(Request $request, int $id)
     {
         try{
+            $j = 1;
+            $version = 0;
             $bodyContent[] = $request->all();
-            $recipeBody = $bodyContent[0];
+            $recipeBody = $bodyContent[0]['receita'];
 
             if($id == 0){
                 $newRecipe = new Recipe();
-                $newRecipe->description = $recipeBody->description;
-                $newRecipe->version = 1;
+                $newRecipe->description = $recipeBody['description'];
+                $version = 1;
+                $newRecipe->version = $version;
                 $newRecipe->save();
                 $id = $newRecipe->id;
             }else{
                 $recipe = Recipe::FindOrfail($id);
-                //atualizar descrição
+                $recipe->description = $recipeBody['description'];
                 $version = $recipe->version + 1;
-                DB::table('recipes')->where('id', $id)->update(['version' => $version]);
+                $recipe->version = $version;
+                $recipe->save();
             }
 
-            $j = 1;
-
-            foreach ($bodyContent[1] as $ingredient) {
+            foreach ($bodyContent[0]['ingredients'] as $ingredient) {
                 $recipeIngredient = new RecipeIngredient();
                 $recipeIngredient->recipe_id = $id;
                 $recipeIngredient->ingredient_id = $ingredient['id'];

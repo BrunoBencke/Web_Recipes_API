@@ -203,13 +203,13 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{base_url}}/ingredient/8",
+							"raw": "{{base_url}}/ingredient/3",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"ingredient",
-								"8"
+								"3"
 							]
 						}
 					},
@@ -240,7 +240,7 @@
 								},
 								{
 									"key": "quantity",
-									"value": "0.800",
+									"value": "0,550",
 									"type": "text"
 								}
 							]
@@ -282,19 +282,19 @@
 								},
 								{
 									"key": "quantity",
-									"value": "0.800",
+									"value": "0,850",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/ingredient/5",
+							"raw": "{{base_url}}/ingredient/3",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"ingredient",
-								"5"
+								"3"
 							]
 						}
 					},
@@ -566,26 +566,26 @@
 							"urlencoded": [
 								{
 									"key": "version",
-									"value": "2",
+									"value": "3",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/recipeIngredients/2",
+							"raw": "{{base_url}}/recipeIngredients/17",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"recipeIngredients",
-								"2"
+								"17"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Atualize Ingredients",
+					"name": "Update Ingredients",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -601,7 +601,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    { \"id\": 3, \"description\": \"JavaScript\", \"quantity\": 10 },\r\n    { \"id\": 4, \"description\": \"Python\", \"quantity\": 20 },\r\n    { \"id\": 9, \"description\": \"TypeScript\", \"quantity\": 30 }\r\n]",
+							"raw": "{\r\n    \"receita\": {\r\n        \"id\": \"\",\r\n        \"description\": \"teste\",\r\n        \"version\": \"\"\r\n    },\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 1,\r\n            \"description\": \"Arroz\",\r\n            \"quantity\": 8\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"description\": \"teste\",\r\n            \"quantity\": 9\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -609,13 +609,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/recipeIngredient/2",
+							"raw": "{{base_url}}/recipeIngredient/16",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"recipeIngredient",
-								"2"
+								"16"
 							]
 						}
 					},
