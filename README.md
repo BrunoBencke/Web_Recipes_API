@@ -10,7 +10,7 @@
 
 # :hammer: Funcionalidades do projeto
 
-- `Funcionalidades`: Foram implementadas todas as funcionalidades exigidas no documento do teste.
+- `Cadastro de ingredientes`: É possível realizar o cadastro de ingredientes, com seu nome e quantidade.
 
 # 🛠️ Abrir e rodar o projeto
 
